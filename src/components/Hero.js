@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
 import './Hero.css';
 import herobg from '../backgrounds/herobg.mp4';
 
@@ -7,7 +6,6 @@ import herobg from '../backgrounds/herobg.mp4';
 const Hero = () => {
     return (
         <div className='hero-main-container'>
-            <Navbar />
             <video src={herobg} autoPlay loop muted className="hero-video" />
             <div className='content'>
                 <b>

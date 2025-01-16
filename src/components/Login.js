@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
-import "./Login.css"; 
+import "./Login.css";
 
-const SignUp = () => {
-  const [userName, setUserName] = useState("");
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [contacts, setContacts] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
 
   const validate = () => {
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!userName) {
-      errors.userName = "Username is required";
-    }
     if (!email) {
       errors.email = "Email is required";
     } else if (!emailRegex.test(email)) {
@@ -24,11 +20,6 @@ const SignUp = () => {
       errors.password = "Password is required";
     } else if (password.length < 6) {
       errors.password = "Password must be at least 6 characters long";
-    }
-    if (!contacts) {
-      errors.contacts = "Please provide your contacts";
-    } else if (password !== contacts) {
-      errors.contacts = "Contacts do not match the password";
     }
     return errors;
   };
@@ -40,7 +31,7 @@ const SignUp = () => {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      alert("Sign-up successful!");
+      alert("Login successful!");
     }
   };
 
@@ -48,17 +39,7 @@ const SignUp = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="upper-body">
-          <h2>Sign Up</h2>
-        </div>
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            type="text"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            placeholder="Enter your username"
-          />
-          {errors.userName && <span className="error">{errors.userName}</span>}
+          <h2>Login</h2>
         </div>
         <div className="form-group">
           <label>Email</label>
@@ -72,32 +53,37 @@ const SignUp = () => {
         </div>
         <div className="form-group">
           <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-          />
+          <div style={{ position: "relative", width: "100%" }}>
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+            />
+            <button
+              className="show"
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
           {errors.password && <span className="error">{errors.password}</span>}
         </div>
-        <div className="form-group">
-          <label>Contacts</label>
-          <input
-            type="password"
-            value={contacts}
-            onChange={(e) => setContacts(e.target.value)}
-            placeholder="insert contacts"
-          />
-          {errors.contacts && <span className="error">{errors.contacts}</span>}
-        </div>
         <button type="submit" className="login-button">
-          Sign Up
+          Login
         </button>
         <div className="signup-link">
           <p>
-            Already have an account?{" "}
-            <Link to="/login" className="register-link">
-              Login here
+            Don't have an account?{" "}
+            <Link to="/signup" className="register-link">
+              Sign up here
+            </Link>
+          </p>
+          <p>
+            Forgot your password?{" "}
+            <Link to="/forgot-password" className="register-link">
+              Reset it
             </Link>
           </p>
         </div>
@@ -106,4 +92,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

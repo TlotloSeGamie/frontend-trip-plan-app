@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
+
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
 
@@ -42,6 +43,7 @@ const Navbar = () => {
                     <a href="/signup" className='auth-link'>SIGN UP</a>
                 </div>
             </div>
+            
         </div>
     );
 };

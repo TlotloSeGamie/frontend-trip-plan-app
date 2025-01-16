@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import FetchWeather from "./FetchWeather"; 
+import Hero from "./Hero";
 
 const Home = () => {
   const [location, setLocation] = useState({ lat: null, lon: null });
@@ -29,6 +30,7 @@ const Home = () => {
 
   return (
     <div className="home-main-container">
+    <Hero/>
       <div className="home-container">
         <div className="today-weather">
           <h2>Today's Weather</h2>
