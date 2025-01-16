@@ -12,9 +12,8 @@ const Footer = () => {
 
                 <div className="footer-section">
                     <h4>Contact Us</h4>
-                    <p>Email: support@example.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
-                    <p>Address: 123 Main Street, City, Country</p>
+                    <p>Email: support@gmail.com</p>
+                    <p>Phone: (+27) 12 345 6789</p>
                 </div>
 
                 <div className="footer-section">
@@ -42,7 +41,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Weather Travel Planner. All rights reserved.</p>
             </div>
         </footer>
     );
