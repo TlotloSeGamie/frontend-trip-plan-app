@@ -6,8 +6,6 @@ import Home from './components/Home';
 import PopularPlaces from './components/PopularPlaces';
 import Explore from './components/Explore';
 import Footer from './components/Footer';
-// import SignUp from "./components/SignUp";
-import SignUp from "./components/signup";
 import Login from './components/Login'; 
 import ForgotPassword from './components/ForgotPassword'; 
 
@@ -19,7 +17,6 @@ function App() {
         <Routes>
           
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
 
